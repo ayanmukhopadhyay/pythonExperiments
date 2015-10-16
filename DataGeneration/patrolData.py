@@ -114,7 +114,7 @@ def getPatrolByTimeStep():
             timeStepCurrPatrol = floor((patrol[counterPatrol][2] - startTime).total_seconds()/float(3600))
             #if patrol is not in current time step, break
             if int(timeStepCurrPatrol)>counterTime:
-                print "breaking"
+                print "breaking at " + str(counterPatrol)
                 break
                 endTimeLast=counterPatrol
             #check which grid the patrol point lies in
