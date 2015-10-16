@@ -36,6 +36,7 @@ def getAVLData():
             dataAVL.extend(dataAVLTemp)
     dataAVL = np.array(dataAVL)
     dataAVL = dataAVL[np.argsort(dataAVL[:,2])]
+    print "Length of avl data is " + str(len(dataAVL))
     return dataAVL
 
 def getGridForPatrol(x,y):
