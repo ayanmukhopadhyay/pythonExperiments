@@ -29,8 +29,8 @@ def getAVLData():
         #break for two files while debugging to test code
         if codeMode == "debug":
             print len(dataAVL)
-            if counter==4:
-                break
+            #if counter==4:
+            #    break
         if "npy" in str(listFileNames[counter]):
             dataAVLTemp = np.load(avlPath + listFileNames[counter])
             dataAVL.extend(dataAVLTemp)
