@@ -107,7 +107,7 @@ def getPatrolByTimeStep():
     #     for counterRow in range(rows):
     #         for counterColumn in range(columns):
     for counterTime in range(timeSteps):
-        print "counterTime = " + str(counterTime)
+        print "starting at = " + str(endTimeLast)
         uniqueCars = [dict() for i in range(rows*columns)]
         for counterPatrol in range(endTimeLast,len(patrol)):
             #checkTimeStep for current patrol point
@@ -115,8 +115,8 @@ def getPatrolByTimeStep():
             #if patrol is not in current time step, break
             if int(timeStepCurrPatrol)>counterTime:
                 print "breaking at " + str(counterPatrol)
-                break
                 endTimeLast=counterPatrol
+                break
             #check which grid the patrol point lies in
             if codeMode=="debug":
                 print "patrol = " + str(counterPatrol)
