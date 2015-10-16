@@ -107,14 +107,14 @@ def getPatrolByTimeStep():
     #     for counterRow in range(rows):
     #         for counterColumn in range(columns):
     for counterTime in range(timeSteps):
-        print "starting at = " + str(endTimeLast)
+#        print "starting at = " + str(endTimeLast)
         uniqueCars = [dict() for i in range(rows*columns)]
         for counterPatrol in range(endTimeLast,len(patrol)):
             #checkTimeStep for current patrol point
             timeStepCurrPatrol = floor((patrol[counterPatrol][2] - startTime).total_seconds()/float(3600))
             #if patrol is not in current time step, break
             if int(timeStepCurrPatrol)>counterTime:
-                print "breaking at " + str(counterPatrol)
+                #print "breaking at " + str(counterPatrol)
                 endTimeLast=counterPatrol
                 break
             #check which grid the patrol point lies in
@@ -135,7 +135,8 @@ def getPatrolByTimeStep():
         # if counterTime%100==0:
         #     print counterPatrol
         np.save("patrolByTimeStep"+str(counterTime),currGridPoliceCount)
-        print counterTime
+        if counterTime%100==0:
+            print counterTime
 
 
 
