@@ -107,8 +107,7 @@ def getPatrolByTimeStep():
     #     for counterRow in range(rows):
     #         for counterColumn in range(columns):
     for counterTime in range(timeSteps):
-        if codeMode=="debug":
-            print "counterTime = " + str(counterTime)
+        print "counterTime = " + str(counterTime)
         uniqueCars = [dict() for i in range(rows*columns)]
         for counterPatrol in range(endTimeLast,len(patrol)):
             #checkTimeStep for current patrol point
@@ -122,14 +121,15 @@ def getPatrolByTimeStep():
             if codeMode=="debug":
                 print "patrol = " + str(counterPatrol)
             gridCurrPatrol = getGridForPatrol(patrol[counterPatrol][0],patrol[counterPatrol][1])
-            #get car number
-            carNumber = patrol[counterPatrol][3]
-            #if car number is there already, increment counter
-            if carNumber in uniqueCars[gridCurrPatrol]:
-                uniqueCars[gridCurrPatrol][carNumber]+=1
-            #else add the car number to the dictionary and initialize counter
-            else:
-                uniqueCars[gridCurrPatrol].update({carNumber:1})
+            if gridCurrPatrol != None:
+                #get car number
+                carNumber = patrol[counterPatrol][3]
+                #if car number is there already, increment counter
+                if carNumber in uniqueCars[gridCurrPatrol]:
+                    uniqueCars[gridCurrPatrol][carNumber]+=1
+                #else add the car number to the dictionary and initialize counter
+                else:
+                    uniqueCars[gridCurrPatrol].update({carNumber:1})
 
         currGridPoliceCount = getProportionalCounts(uniqueCars)
         # if counterTime%100==0:
